@@ -32,18 +32,3 @@ target_compile_definitions(msdf-atlas-gen PRIVATE _CRT_SECURE_NO_WARNINGS)
 
 # Linking with the msdfgen library
 target_link_libraries(msdf-atlas-gen PRIVATE msdfgen)
-
-# Compiler options and properties per configuration
-foreach(TARGET msdf-atlas-gen)
-    set_target_properties(${TARGET} PROPERTIES
-        ARCHIVE_OUTPUT_DIRECTORY_DEBUG ${OUTPUT_DIR}/debug/${TARGET}
-        ARCHIVE_OUTPUT_DIRECTORY_RELEASE ${OUTPUT_DIR}/release/${TARGET}
-        ARCHIVE_OUTPUT_DIRECTORY_MINSIZEREL ${OUTPUT_DIR}/dist/${TARGET}
-        LIBRARY_OUTPUT_DIRECTORY_DEBUG ${OUTPUT_DIR}/debug/${TARGET}
-        LIBRARY_OUTPUT_DIRECTORY_RELEASE ${OUTPUT_DIR}/release/${TARGET}
-        LIBRARY_OUTPUT_DIRECTORY_MINSIZEREL ${OUTPUT_DIR}/dist/${TARGET}
-        RUNTIME_OUTPUT_DIRECTORY_DEBUG ${OUTPUT_DIR}/debug/${TARGET}
-        RUNTIME_OUTPUT_DIRECTORY_RELEASE ${OUTPUT_DIR}/release/${TARGET}
-        RUNTIME_OUTPUT_DIRECTORY_MINSIZEREL ${OUTPUT_DIR}/dist/${TARGET}
-    )
-endforeach()
